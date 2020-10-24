@@ -7,6 +7,10 @@ package com.mycompany.practica4;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.List;
+import java.awt.Point;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -16,20 +20,34 @@ import javax.swing.JPanel;
 public class GraphDisplay extends JPanel{
     
     private Graphics g;
-    
+    private List<Point> points;
    
+    
+    public GraphDisplay(){
+        points = new ArrayList<Point>(25);
+    }
     @Override
     public void paintComponent(Graphics g){
-
-        super.paintComponent(g);
         
+        super.paintComponent(g);
+    
         this.setBackground(Color.BLUE);
         this.setForeground(Color.BLACK);
         
+        for (Point p : points) {
+          g.fillOval(p.x, p.y, 10, 10);
+            
+        }
+        
+        
     }
     
-   public void drawCircle(int x, int y){
-       g.drawOval(x,y,50,30);
+   public void addPoints(int x, int y){
+       Point point= new Point(x,y);
+       points.add(point);
+       
+       
+      
    }
    public Graphics getGraphics(){
        return g;

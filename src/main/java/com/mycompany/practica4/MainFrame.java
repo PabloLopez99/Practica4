@@ -93,7 +93,8 @@ public class MainFrame extends javax.swing.JFrame {
         int x= evt.getX();
         int y= evt.getY();
         
-       
+        graphDisplay1.addPoints(x,y);
+        graphDisplay1.repaint();
    
       
    
